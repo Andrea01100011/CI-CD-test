@@ -1,16 +1,18 @@
 pipeline {
-	agent {
-		dockerfile {
-			filename 'Dockerfile'
-		 	label 'my-test-node'
-			args '-p 3001:3000'
-		}
-	}	
+	agent none 
 	environment {
 		CI = 'true'
 	}
 	stages {
 		stage('Build') {
+			agent {
+				dockerfile {
+					filename 'Dockerfile'
+					dir 'build'
+					label 'my-test-node'
+			}
+				
+		}
 			steps {
 				sh 'npm install'
 			}
