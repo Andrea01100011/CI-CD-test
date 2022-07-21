@@ -1,8 +1,8 @@
 pipeline {
 	agent {
-		docker {
-			image 'node:8.2.1-alpine'
-		 	label 'my-test'
+		dockerfile {
+			filename 'Dockerfile'
+		 	label 'my-test-node'
 			args '-p 3001:3000'
 		}
 	}	
