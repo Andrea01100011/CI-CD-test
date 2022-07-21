@@ -5,7 +5,7 @@ pipeline {
 	}
 	stages {
 		stage('Build') {
-			agent {
+			agent none {
 				dockerfile {
 					filename 'Dockerfile'
 					dir 'build'
