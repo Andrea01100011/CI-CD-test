@@ -1,4 +1,4 @@
-FROM node:16.13.0
+FROM node:16.16.0
 MAINTAINER Andrea Li
 WORKDIR /usr/src/echarts
 COPY . /usr/src/echarts
