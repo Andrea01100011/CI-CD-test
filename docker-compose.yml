@@ -5,6 +5,6 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: mynode:v2.0.0
-    container_name: mynode
+    container_name: mynodejs
     ports: 
-      - 3001：3000
+      - 3001:3000
