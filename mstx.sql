@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 2022-06-23 03:57:10
--- 服务器版本： 10.1.28-MariaDB
--- PHP Version: 5.6.32
+-- 主机： 39.103.66.129:33060
+-- 生成日期： 2022-07-27 03:57:59
+-- 服务器版本： 5.7.38
+-- PHP 版本： 8.0.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,8 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mstx`
+-- 数据库： `mstx`
 --
+CREATE DATABASE IF NOT EXISTS `mstx` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mstx`;
 
 -- --------------------------------------------------------
 
@@ -584,18 +585,18 @@ CREATE TABLE `mstx_user` (
   `uid` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `age` varchar(32) NOT NULL,
-  `sex` int(11) NOT NULL,
-  `grow` int(11) NOT NULL,
-  `lucky` int(11) NOT NULL,
-  `meili` int(11) NOT NULL,
-  `follow` int(11) NOT NULL,
-  `fans` int(11) NOT NULL,
-  `collection` int(11) NOT NULL,
-  `p_concerned` varchar(255) NOT NULL,
+  `age` varchar(32) DEFAULT NULL,
+  `sex` int(11) DEFAULT NULL,
+  `grow` int(11) DEFAULT NULL,
+  `lucky` int(11) DEFAULT NULL,
+  `meili` int(11) DEFAULT NULL,
+  `follow` int(11) DEFAULT NULL,
+  `fans` int(11) DEFAULT NULL,
+  `collection` int(11) DEFAULT NULL,
+  `p_concerned` varchar(255) DEFAULT NULL,
   `avatar_image` varchar(255) NOT NULL DEFAULT 'defult_01.png',
-  `email` varchar(255) NOT NULL,
-  `signature` varchar(255) NOT NULL
+  `email` varchar(255) DEFAULT NULL,
+  `signature` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -603,56 +604,62 @@ CREATE TABLE `mstx_user` (
 --
 
 INSERT INTO `mstx_user` (`uid`, `username`, `password`, `age`, `sex`, `grow`, `lucky`, `meili`, `follow`, `fans`, `collection`, `p_concerned`, `avatar_image`, `email`, `signature`) VALUES
-(1, 'yangyiliang', '123123', '24', 1, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '1213121232@qq.com', '2147483647'),
+(1, 'yangyiliang', '144444', '24', 0, 0, 0, 0, 0, 0, 0, '0', 'ab0fdf97-a632-487e-9759-f7c2720aa64d.jpg', '121232@qq.com', '21474836'),
 (2, '可乐粽', '123123', '22', 1, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '165432789@qq.com', '天天开心'),
-(3, '豆豆', '123456', '21', 0, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '1622542247@qq.com', '每天开心'),
+(3, '豆豆', '123456', '21', 0, 0, 0, 0, 0, 0, 0, '0', '', '16225422251@qq.com', '每天开心请问'),
 (4, '星星', '123456', '26', 1, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '165432789@qq.com', '123zff'),
 (5, '橙子', '123456', '26', 1, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '165432786@qq.com', '吱吱吱吱大厦'),
 (6, '香蕉', '123456', '18', 0, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '175432789@qq.com', '开心每一天'),
-(7, '面包', '123123', '19', 0, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '165432589@qq.com', '那德国哈苏京东方');
+(7, '面包', '123123', '19', 0, 0, 0, 0, 0, 0, 0, '0', 'defult_01.png', '165432589@qq.com', '那德国哈苏京东方'),
+(8, '杰杰', '123456', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '33e998ce-02b8-43a8-a273-b79189bd63c9.jpg', 'null', 'null'),
+(9, '佳佳', '123456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'defult_01.png', NULL, NULL),
+(10, '123456', '123456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'defult_01.png', NULL, NULL),
+(11, 'aaaaa', '123456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'defult_01.png', NULL, NULL),
+(12, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'defult_01.png', NULL, NULL),
+(13, 'aaa123', '123123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'defult_01.png', NULL, NULL);
 
 --
--- Indexes for dumped tables
+-- 转储表的索引
 --
 
 --
--- Indexes for table `mstx_createm`
+-- 表的索引 `mstx_createm`
 --
 ALTER TABLE `mstx_createm`
   ADD PRIMARY KEY (`cid`);
 
 --
--- Indexes for table `mstx_heal`
+-- 表的索引 `mstx_heal`
 --
 ALTER TABLE `mstx_heal`
   ADD PRIMARY KEY (`hid`);
 
 --
--- Indexes for table `mstx_ingredients`
+-- 表的索引 `mstx_ingredients`
 --
 ALTER TABLE `mstx_ingredients`
   ADD PRIMARY KEY (`fid`);
 
 --
--- Indexes for table `mstx_menu`
+-- 表的索引 `mstx_menu`
 --
 ALTER TABLE `mstx_menu`
   ADD PRIMARY KEY (`mid`);
 
 --
--- Indexes for table `mstx_shar`
+-- 表的索引 `mstx_shar`
 --
 ALTER TABLE `mstx_shar`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `mstx_step`
+-- 表的索引 `mstx_step`
 --
 ALTER TABLE `mstx_step`
   ADD PRIMARY KEY (`sid`);
 
 --
--- Indexes for table `mstx_user`
+-- 表的索引 `mstx_user`
 --
 ALTER TABLE `mstx_user`
   ADD PRIMARY KEY (`uid`);
@@ -701,7 +708,7 @@ ALTER TABLE `mstx_step`
 -- 使用表AUTO_INCREMENT `mstx_user`
 --
 ALTER TABLE `mstx_user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
