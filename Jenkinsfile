@@ -52,4 +52,23 @@ docker push ${harborAddr}/${harborRepo}/${JOB_NAME}:${tag}'''
             }
         }
     }
+    //钉钉机器人推送
+    post {
+        success {
+            dingtalk(
+                robot: 'Jenkins_DingDing',
+                type: 'MARKDOWN',
+                title: "success: ${JOB_NAME}",
+                text: "[- 构建成功: ${JOB_NAME} \n- 版本: ${tag} \n- 持续时间: ${currentBuild.durationString} ]"
+            )
+        }
+        failure {
+            dingtalk(
+                robot: 'Jenkins_DingDing',
+                type: 'MARKDOWN',
+                title: "success: ${JOB_NAME}",
+                text: "[- 构建失败: ${JOB_NAME} \n- 版本: ${tag} \n- 持续时间: ${currentBuild.durationString} ]"
+            )
+        }
+    }
 }
